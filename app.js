@@ -37,7 +37,7 @@ const quizData = [
         b: 'All Progressive Congress',
         c: 'Anti Peace Code',
         d: 'A New Chapter',
-        c: 'b'
+        correct: 'b'
     }
 ];
 
@@ -49,8 +49,8 @@ const optionC = document.getElementById('option-c');
 const optionD = document.getElementById('option-d');
 const btn = document.getElementById('submit');
 
-// DEFINE THE VARIABLE FOR THE CURRENT QUESTION
 let currentQuiz = 0;
+let score = 0;
 
 // LOAD QUIZ
 loadQuiz();
@@ -67,13 +67,35 @@ function loadQuiz() {
     optionD.innerText = currentQuizData.d;
 }
 
+function getSelected() {
+    const UIanswers = document.querySelectorAll('.answer');
+
+    let answer = undefined;
+
+    UIanswers.forEach((UIanswer) => {
+        if (UIanswer.checked) {
+            answer = UIanswer.id;
+        }
+    });
+
+    return answer;
+}
+
 // LOAD THE NEXT QUIZ
 btn.addEventListener('click', function () {
-    currentQuiz++;
+    // CHECK TO SEE ANSWER
+    const answer = getSelected();
 
-    if (currentQuiz < quizData.length) {
-        loadQuiz();
-    } else {
-        alert('done');
+    if (answer) {
+        if (answer === quizData[currentQuiz].correct) {
+            score++;
+        }
+
+        currentQuiz++;
+        if (currentQuiz < quizData.length) {
+            loadQuiz();
+        } else {
+            alert('done');
+        }
     }
 });
