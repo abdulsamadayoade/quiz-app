@@ -6,4 +6,4 @@ i. User can't access the next quiz without answering the current one.
 ii. The score of the user will be displayed after completion of the quiz.
 iii. User can take the quiz many times by clicking the 
 
-Live URL = 
+Live URL = https://quiz-app-abdul.netlify.app/
