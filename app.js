@@ -47,6 +47,7 @@ const optionA = document.getElementById('option-a');
 const optionB = document.getElementById('option-b');
 const optionC = document.getElementById('option-c');
 const optionD = document.getElementById('option-d');
+const btn = document.getElementById('submit');
 
 // DEFINE THE VARIABLE FOR THE CURRENT QUESTION
 let currentQuiz = 0;
@@ -54,6 +55,7 @@ let currentQuiz = 0;
 // LOAD QUIZ
 loadQuiz();
 
+// FUNCTION TO LOAD FIRST QUIZ
 function loadQuiz() {
 
     const currentQuizData = quizData[currentQuiz];
@@ -63,6 +65,15 @@ function loadQuiz() {
     optionB.innerText = currentQuizData.b;
     optionC.innerText = currentQuizData.c;
     optionD.innerText = currentQuizData.d;
-
-    currentQuiz++;
 }
+
+// LOAD THE NEXT QUIZ
+btn.addEventListener('click', function () {
+    currentQuiz++;
+
+    if (currentQuiz < quizData.length) {
+        loadQuiz();
+    } else {
+        alert('done');
+    }
+});
