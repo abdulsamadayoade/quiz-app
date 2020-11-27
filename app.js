@@ -42,6 +42,7 @@ const quizData = [
 ];
 
 // DEFINE THE VARIABLES
+const quizContainer = document.querySelector('.quiz-container');
 const questionText = document.getElementById('question-text');
 const UIanswers = document.querySelectorAll('.answer');
 const optionA = document.getElementById('option-a');
@@ -103,7 +104,7 @@ btn.addEventListener('click', function () {
         if (currentQuiz < quizData.length) {
             loadQuiz();
         } else {
-            alert('done');
+            quizContainer.innerHTML = `<h2>You score is ${score} / ${quizData.length}.</h2>`;
         }
     }
 });
