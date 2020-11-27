@@ -43,6 +43,7 @@ const quizData = [
 
 // DEFINE THE VARIABLES
 const questionText = document.getElementById('question-text');
+const UIanswers = document.querySelectorAll('.answer');
 const optionA = document.getElementById('option-a');
 const optionB = document.getElementById('option-b');
 const optionC = document.getElementById('option-c');
@@ -57,6 +58,7 @@ loadQuiz();
 
 // FUNCTION TO LOAD FIRST QUIZ
 function loadQuiz() {
+    deSelectAnswers();
 
     const currentQuizData = quizData[currentQuiz];
 
@@ -67,9 +69,8 @@ function loadQuiz() {
     optionD.innerText = currentQuizData.d;
 }
 
+// SELECT ANSWER
 function getSelected() {
-    const UIanswers = document.querySelectorAll('.answer');
-
     let answer = undefined;
 
     UIanswers.forEach((UIanswer) => {
@@ -79,6 +80,13 @@ function getSelected() {
     });
 
     return answer;
+}
+
+// DESELECT ANSWER
+function deSelectAnswers() {
+    UIanswers.forEach((UIanswer) => {
+        UIanswer.checked = false;
+    });
 }
 
 // LOAD THE NEXT QUIZ
