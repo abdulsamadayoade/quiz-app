@@ -72,6 +72,8 @@ function loadQuiz() {
 
 // SELECT ANSWER
 function getSelected() {
+    let answer;
+
     UIanswers.forEach((UIanswer) => {
         if (UIanswer.checked) {
             answer = UIanswer.id;
