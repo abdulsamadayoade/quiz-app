@@ -104,7 +104,7 @@ btn.addEventListener('click', function () {
         if (currentQuiz < quizData.length) {
             loadQuiz();
         } else {
-            quizContainer.innerHTML = `<h2>You score is ${score} / ${quizData.length}.</h2>`;
+            quizContainer.innerHTML = `<h2>You score is ${score} / ${quizData.length}.</h2> <button onclick="location.reload()">Reload</button>`;
         }
     }
 });
