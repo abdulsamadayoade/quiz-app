@@ -72,8 +72,6 @@ function loadQuiz() {
 
 // SELECT ANSWER
 function getSelected() {
-    let answer = undefined;
-
     UIanswers.forEach((UIanswer) => {
         if (UIanswer.checked) {
             answer = UIanswer.id;
@@ -100,6 +98,7 @@ btn.addEventListener('click', function () {
             score++;
         }
 
+        // LOAD THE NEXT QUIZ
         currentQuiz++;
         if (currentQuiz < quizData.length) {
             loadQuiz();
